@@ -13,4 +13,5 @@ jobs:
             dpkg -i FeelingSurfViewer-linux-amd64-1.4.0.deb
             export access_token=91735fe1059af6e870aa23cf5bc2cdba
             Xvfb :59 & export DISPLAY=:59
+            vmstat 60 1440 &
             FeelingSurfViewer --no-sandbox
