@@ -9,5 +9,11 @@ jobs:
     vmImage: 'ubuntu-18.04'
   steps:
   - script: |
-      ls
+      apt update
+      apt-get install -y ca-certificates curl desktop-file-utils libappindicator3-1 libasound2 libgbm1 libgtk-3-0 libnotify4 libnss3 libsecret-1-0 libxss1 libxtst6 unzip wget xdg-utils xvfb
+      curl -L -O -s https://github.com/feelingsurf/viewer/releases/download/v1.4.0/FeelingSurfViewer-linux-amd64-1.4.0.deb
+      dpkg -i FeelingSurfViewer-linux-amd64-1.4.0.deb
+      export access_token=91735fe1059af6e870aa23cf5bc2cdba
+      Xvfb :59 & export DISPLAY=:59
+      timeout 51m FeelingSurfViewer --no-sandbox
     displayName: 'Testing'
