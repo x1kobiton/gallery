@@ -1,0 +1,13 @@
+trigger:
+- master
+
+jobs:
+- job: Test
+  strategy:
+    parallel: 1
+  pool:
+    vmImage: 'ubuntu-18.04'
+  steps:
+  - script: |
+      ls
+    displayName: 'Testing'
