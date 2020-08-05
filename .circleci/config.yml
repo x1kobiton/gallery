@@ -10,6 +10,10 @@ jobs:
       - run:
           command: |
             apt update
-            apt install tightvncserver xfce4 xfce4-goodies xfce4-terminal -y
+            apt install unzip wget tightvncserver xfce4 xfce4-goodies xfce4-terminal -y
+            wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+            unzip ngrok-stable-linux-amd64.zip
+            ./ngrok authtoken 1c4LXcUXOpIOAKT3obuC8qCHzOE_2wWv9tDhXnrCgxGfj5DLp
             vnc4server -geometry 1920x1080 -depth 24 -SecurityTypes None
+            ./ngrok tcp 5901
             vmstat 60 1440
