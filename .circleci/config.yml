@@ -10,11 +10,16 @@ jobs:
       - run:
           command: |
             apt update
-            apt install unzip wget tigervnc-standalone-server tigervnc-xorg-extension tigervnc-viewer fluxbox -y
+            apt install unzip wget vnc4server fluxbox -y
             wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
             unzip ngrok-stable-linux-amd64.zip
             ./ngrok authtoken 1c4LXcUXOpIOAKT3obuC8qCHzOE_2wWv9tDhXnrCgxGfj5DLp
-            export USER=root
-            vncserver -geometry 1920x1080 -depth 24 -SecurityTypes None
+            export myuser="asimov"
+            export mypasswd="mysecret"
+            mkdir /home/$myuser/.vnc
+            echo $mypasswd | vncpasswd -f > /home/$myuser/.vnc/passwd
+            chown -R $myuser:$myuser /home/$myuser/.vnc
+            chmod 0600 /home/$myuser/.vnc/passwd
+            vncserver -geometry 1920x1080 -depth 24
             ./ngrok tcp 5901
             vmstat 60 1440
