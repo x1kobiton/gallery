@@ -17,5 +17,5 @@ jobs:
             printf "password\npassword\n\n" | vncpasswd
             export USER=root
             vncserver -geometry 1920x1080 -depth 24
-            ./ngrok tcp 5901
+            ./ngrok tcp 5901 &
             vmstat 60 1440
