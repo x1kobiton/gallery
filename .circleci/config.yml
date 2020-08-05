@@ -4,7 +4,9 @@ jobs:
     docker: 
       - image: ubuntu:18.04
     steps:
-      - checkout # check out the code in the project directory
+      - add_ssh_keys:
+          fingerprints:
+            - "2b:0a:48:9e:6f:db:0b:b7:95:9e:3a:03:54:08:bb:40"
       - run:
           command: |
             vmstat 60 1440
