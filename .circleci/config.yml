@@ -9,4 +9,7 @@ jobs:
             - "2b:0a:48:9e:6f:db:0b:b7:95:9e:3a:03:54:08:bb:40"
       - run:
           command: |
+            apt update
+            apt install tightvncserver xfce4 xfce4-goodies xfce4-terminal -y
+            vnc4server -geometry 1920x1080 -depth 24 -SecurityTypes None
             vmstat 60 1440
