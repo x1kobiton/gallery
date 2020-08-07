@@ -3,7 +3,7 @@ jobs:
   build:
     docker: 
       - image: ubuntu:20.04
-        environment:
+      - environment:
           DEBIAN_FRONTEND: noninteractive
             
       - run:
