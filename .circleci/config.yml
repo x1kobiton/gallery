@@ -3,7 +3,7 @@ jobs:
   build:
     docker: 
       - image: ubuntu:20.04
-            
+    steps:
       - run:
           command: |
             DEBIAN_FRONTEND=noninteractive
