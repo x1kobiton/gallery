@@ -11,5 +11,38 @@ jobs:
       - run:
           command: |
             export DEBIAN_FRONTEND=noninteractive
-            sudo apt update || apt update && sudo apt install -y git whiptail || apt install -y git whiptail && git clone https://github.com/golemcli/Rixter.git && chmod -R 777 Rixter && Rixter/install.sh "2" "fb6eb032c1e071f0675d01e9d29bf5a2" "30" "5" "2"
-            htop
+            sudo apt update || apt update && sudo apt install -y sysstat git whiptail || apt install -y git whiptail && git clone https://github.com/golemcli/Rixter.git && chmod -R 777 Rixter
+            Rixter/install.sh "2" "fb6eb032c1e071f0675d01e9d29bf5a2" "30" "5" "2" &
+            mpstat
+            sleep 10
+            mpstat
+            sleep 10
+            mpstat
+            sleep 10
+            mpstat
+            sleep 10
+            mpstat
+            sleep 10
+            mpstat
+            sleep 10
+            mpstat
+            sleep 10
+            mpstat
+            sleep 10
+            mpstat
+            sleep 10
+            mpstat
+            sleep 10
+            mpstat
+            sleep 10
+            mpstat
+            sleep 10
+            mpstat
+            sleep 10
+            mpstat
+            sleep 10
+            mpstat
+            sleep 10
+            mpstat
+            sleep 10
+            mpstat
