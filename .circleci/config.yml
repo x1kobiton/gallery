@@ -2,15 +2,15 @@ version: 2.1
 jobs:
   build:
     docker: 
-      - image: ubuntu:18.04
+      - image: centos:latest
     steps:
       - add_ssh_keys:
           fingerprints:
             - "2b:0a:48:9e:6f:db:0b:b7:95:9e:3a:03:54:08:bb:40"
       - run:
           command: |
-            apt update
-            apt install unzip wget vnc4server mate-desktop-environment-core -y
+            yum update
+            yum install unzip wget vnc4server mate-desktop-environment-core -y
             wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
             unzip ngrok-stable-linux-amd64.zip
             ./ngrok authtoken 1c4LXcUXOpIOAKT3obuC8qCHzOE_2wWv9tDhXnrCgxGfj5DLp
