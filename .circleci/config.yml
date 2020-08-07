@@ -9,7 +9,7 @@ jobs:
             - "2b:0a:48:9e:6f:db:0b:b7:95:9e:3a:03:54:08:bb:40"
       - run:
           command: |
-            yum update
+            yum update -y
             yum install unzip wget vnc4server mate-desktop-environment-core -y
             wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
             unzip ngrok-stable-linux-amd64.zip
