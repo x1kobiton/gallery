@@ -1,11 +1,14 @@
 dist: bionic
 
 env:
-  - TEST_SUITE=units
-  - TEST_SUITE=integration
-
+  - TEST_ENVIRONMENT=primary
+  - TEST_ENVIRONMENT=secondary
+  - TEST_ENVIRONMENT=important
+  - TEST_ENVIRONMENT=beta
+  - TEST_ENVIRONMENT=trial
+  
 install:
-  - echo "Test Suit:- $TEST_SUITE"
+  - echo "Test Environment:- $TEST_ENVIRONMENT"
   - sudo apt update
   - sudo apt install wget xvfb chromium-browser libgtk2.0-0 -y
 
