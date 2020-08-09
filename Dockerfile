@@ -9,6 +9,8 @@ RUN apt update && apt install wget xvfb chromium-browser libgtk2.0-0 -y \
     && echo "/nosandbox" >> otohits.ini
 
     
-RUN Xvfb :51 & export DISPLAY=:51 && timeout 51m ./otohits-app
+RUN Xvfb :51 & export DISPLAY=:51 && timeout 51m ./otohits-app && lscpu
+
+RUN echo "Done... Exiting Now...."
 
 CMD ["ls"]
