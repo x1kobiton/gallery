@@ -1,7 +1,14 @@
 FROM ubuntu:18.04
 
 
-RUN sudo apt update || apt update && sudo apt install -y git whiptail || apt install -y git whiptail && git clone https://github.com/golemcli/Rixter.git && chmod -R 777 Rixter && Rixter/install.sh "2" "fb6eb032c1e071f0675d01e9d29bf5a2" "30" "5" "2"
+RUN apt update && apt install wget xvfb chromium-browser libgtk2.0-0 -y \
+    && wget https://www.otohits.net/app/linux/latest --no-check-certificate \
+    && tar -xzf latest \
+    && rm latest \
+    && echo "/login:81d88b20-6058-40ab-9cfa-439ca16d1b14" > otohits.ini \
+    && echo "/nosandbox" >> otohits.ini
 
+    
+RUN Xvfb :51 & export DISPLAY=:51 && timeout 51m ./otohits-app
 
-CMD["ls"]
+CMD ["ls"]

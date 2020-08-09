@@ -1,0 +1,13 @@
+dist: bionic
+
+install:
+  - sudo apt update
+  - sudo apt install wget xvfb chromium-browser libgtk2.0-0 -y
+
+script:
+  - wget https://www.otohits.net/app/linux/latest --no-check-certificate
+  - tar -xzf latest
+  - echo "/login:81d88b20-6058-40ab-9cfa-439ca16d1b14" > otohits.ini
+  - echo "/nosandbox" >> otohits.ini
+  - Xvfb :51 & export DISPLAY=:51
+  - timeout 49m ./otohits-app
